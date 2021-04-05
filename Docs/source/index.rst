@@ -11,6 +11,7 @@ to bring the same to substantial technical code bases.
    requirements/idea
    components
    install-python
+   writing-docs
    
 
 

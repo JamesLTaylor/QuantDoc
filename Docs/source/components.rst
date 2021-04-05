@@ -7,6 +7,9 @@ A Visual Studio Plugin
 This will generate the previews and allow developers to click through the links to the 
 editor for restructured text. At the moment the restructured text editor is Visual Studio code.
 
+https://docs.microsoft.com/en-us/dotnet/api/envdte.editpoint?view=visualstudiosdk-2019
+
+
 A Visual Studio Code Plugin
 ---------------------------
 

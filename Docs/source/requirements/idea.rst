@@ -18,7 +18,8 @@ Linking Source and Docs
 -----------------------
 
 In the source there is a way to put a link back to the technical document like this:
- 
+
+.. _fig_special_link:
 .. image:: images/special-link.png
 
 Then on hover over that you get a rendered version of the section of the document that is referenced. 

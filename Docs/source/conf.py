@@ -20,6 +20,7 @@
 project = 'QuantDoc'
 copyright = '2021, James Taylor'
 author = 'James Taylor'
+master_doc = 'index'
 
 
 # -- General configuration ---------------------------------------------------
