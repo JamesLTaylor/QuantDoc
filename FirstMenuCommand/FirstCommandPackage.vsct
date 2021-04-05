@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <Extern href="stdidcmd.h" />
+  <Extern href="vsshlids.h" />
+  <Commands package="guidFirstCommandPackage">
+    <Groups>
+      <Group guid="guidFirstCommandPackageCmdSet" id="MyMenuGroup" priority="0x0600">
+        <Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_CODEWIN" />
+      </Group>
+    </Groups>
+
+    <Buttons>
+      <Button guid="guidFirstCommandPackageCmdSet" id="FirstCommandId" priority="0x0100" type="Button">
+        <Parent guid="guidFirstCommandPackageCmdSet" id="MyMenuGroup" />
+        <Icon guid="guidImages" id="bmpPic1" />
+        <Strings>
+          <ButtonText>Preview Doc</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="guidFirstCommandPackageCmdSet" id="InsertReferenceCommandId" priority="0x0101" type="Button">
+        <Parent guid="guidFirstCommandPackageCmdSet" id="MyMenuGroup" />
+        <Icon guid="guidImages" id="bmpPic2" />
+        <Strings>
+          <ButtonText>Insert Reference</ButtonText>
+        </Strings>
+      </Button>
+    </Buttons>
+
+    <Bitmaps>
+      <Bitmap guid="guidImages" href="Resources\FirstCommand.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
+      <Bitmap guid="guidImages" href="Resources\InsertReferenceCommand.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
+    </Bitmaps>
+  </Commands>
+
+  <Symbols>
+    <!-- This is the package guid. -->
+    <GuidSymbol name="guidFirstCommandPackage" value="{9fbaea06-4e45-46c9-b2cd-92f8da459f78}" />
+
+    <!-- This is the guid used to group the menu commands together -->
+    <GuidSymbol name="guidFirstCommandPackageCmdSet" value="{8b5a50cc-a03c-443b-9d32-167f373f1da6}">
+      <IDSymbol name="MyMenuGroup" value="0x1020" />
+      <IDSymbol name="FirstCommandId" value="0x0100" />
+      <IDSymbol name="InsertReferenceCommandId" value="0x0101"/>
+    </GuidSymbol>
+
+    <GuidSymbol name="guidImages" value="{c1bee08d-90a0-46f9-8dab-e504d0ae14c6}">
+      <IDSymbol name="bmpPic1" value="1" />
+      <IDSymbol name="bmpPic2" value="2" />
+      <IDSymbol name="bmpPicSearch" value="3" />
+      <IDSymbol name="bmpPicX" value="4" />
+      <IDSymbol name="bmpPicArrows" value="5" />
+      <IDSymbol name="bmpPicStrikethrough" value="6" />
+    </GuidSymbol>
+  </Symbols>
+</CommandTable>

@@ -4,4 +4,6 @@
 *.userosscache
 *.sln.docstates
 build/
+bin/
+obj/
 .vscode/
