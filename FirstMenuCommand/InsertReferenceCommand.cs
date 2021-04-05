@@ -100,26 +100,12 @@ namespace FirstMenuCommand
                 var ts = dte.ActiveWindow.Selection as EnvDTE.TextSelection;
                 var func = ts?.ActivePoint.CodeElement[vsCMElement.vsCMElementFunction];
                 var editPoint = ts.ActivePoint.CreateEditPoint();
+                // https://docs.microsoft.com/en-us/dotnet/api/envdte.editpoint?view=visualstudiosdk-2019
                 editPoint.Insert("//QD: _math_example_formula");
                 var name = func.FullName;
-
                 string message2 = dte.ActiveWindow.Document.FullName + System.Environment.NewLine +
                                   "Line " + ts.CurrentLine + System.Environment.NewLine +
                                   func.FullName;
-
-
-                string message = string.Format(CultureInfo.CurrentCulture, "Inside {0}.MenuItemCallback()",
-                    this.GetType().FullName);
-                string title = "InsertReferenceCommand";
-
-                // Show a message box to prove we were here
-                VsShellUtilities.ShowMessageBox(
-                    this.package,
-                    message,
-                    title,
-                    OLEMSGICON.OLEMSGICON_INFO,
-                    OLEMSGBUTTON.OLEMSGBUTTON_OK,
-                    OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
             }
             catch (Exception)
             {
