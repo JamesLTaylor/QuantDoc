@@ -5,9 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="PreviewDoc" Height="450" Width="800">
-    <StackPanel Margin="0">
-        <WebBrowser x:Name="Browser" Margin="2" Loaded="Browser_OnLoaded" ScrollViewer.HorizontalScrollBarVisibility="Auto" >
+    <StackPanel Margin="0"
+                VerticalAlignment="Stretch"
+                HorizontalAlignment="Stretch" 
+                Orientation="Vertical">
+        <StackPanel></StackPanel>
+        <WebBrowser x:Name="Browser" Margin="2" Loaded="Browser_OnLoaded" 
+                    ScrollViewer.HorizontalScrollBarVisibility="Auto" 
+                    ScrollViewer.VerticalScrollBarVisibility="Auto"
+                    VerticalAlignment="Stretch"
+                    HorizontalAlignment="Stretch" Height="390">
         </WebBrowser>
+        <Button Content="Edit Document" Width="100" VerticalAlignment="Bottom"
+                Margin="2"/>
     </StackPanel>
 </Window>
 

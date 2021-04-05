@@ -1,13 +1,9 @@
 ﻿using Microsoft.VisualStudio.Shell;
-using Microsoft.VisualStudio.Shell.Interop;
 using System;
 using System.ComponentModel.Design;
-using System.Globalization;
-using System.Threading;
-using System.Threading.Tasks;
+using System.Linq;
 using EnvDTE;
 using EnvDTE80;
-using Microsoft.VisualStudio.Threading;
 using Task = System.Threading.Tasks.Task;
 
 namespace FirstMenuCommand
@@ -94,14 +90,17 @@ namespace FirstMenuCommand
             try
             {
                 await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
-                var dte = await ServiceProvider.GetServiceAsync(typeof(DTE)).ConfigureAwait(false) as DTE2;
-                var filename = dte.ActiveDocument.FullName;
-
-                var ts = dte.ActiveWindow.Selection as EnvDTE.TextSelection;
-                var func = ts?.ActivePoint.CodeElement[vsCMElement.vsCMElementFunction];
+                if (!(await ServiceProvider.GetServiceAsync(typeof(DTE)).ConfigureAwait(false) is DTE2 dte)) return;
+                if (!(dte.ActiveWindow.Selection is TextSelection ts)) return;
                 var editPoint = ts.ActivePoint.CreateEditPoint();
+                var line = editPoint.Line;
+                var nextLine = editPoint.GetLines(line + 1, line + 2);
+                var count = nextLine.TakeWhile(char.IsWhiteSpace).Count();
                 // https://docs.microsoft.com/en-us/dotnet/api/envdte.editpoint?view=visualstudiosdk-2019
-                editPoint.Insert("//QD: _math_example_formula");
+                editPoint.Insert(nextLine.Substring(0, count) + "//QD: _math_example_formula");
+
+                var func = ts?.ActivePoint.CodeElement[vsCMElement.vsCMElementFunction];
+                var filename = dte.ActiveDocument.FullName;
                 var name = func.FullName;
                 string message2 = dte.ActiveWindow.Document.FullName + System.Environment.NewLine +
                                   "Line " + ts.CurrentLine + System.Environment.NewLine +
