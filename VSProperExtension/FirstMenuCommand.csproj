@@ -52,8 +52,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="FirstCommand.cs" />
-    <Compile Include="FirstCommandPackage.cs" />
-    <Compile Include="FirstCommandPackage1.cs">
+    <Compile Include="FirstCommandPackage.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FirstCommandPackage.vsct</DependentUpon>
@@ -78,7 +77,7 @@
     <VSCTCompile Include="FirstCommandPackage.vsct">
       <Generator>VsctGenerator</Generator>
       <ResourceName>Menus.ctmenu</ResourceName>
-      <LastGenOutput>FirstCommandPackage1.cs</LastGenOutput>
+      <LastGenOutput>FirstCommandPackage.cs</LastGenOutput>
     </VSCTCompile>
   </ItemGroup>
   <ItemGroup>
